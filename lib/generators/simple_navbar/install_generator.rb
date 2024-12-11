@@ -2,7 +2,7 @@ require "rails/generators"
 
 module SimpleNavbar
   class InstallGenerator < Rails::Generators::Base
-    source_root File.expand_path("../../../..", __dir__)
+    source_root File.expand_path("../../../", __dir__)
 
     class_option :stimulus, type: :boolean, default: false, desc: "Include Stimulus controller"
 
@@ -26,14 +26,14 @@ module SimpleNavbar
 
     def copy_to_javascript_folder
       if options[:stimulus]
-        copy_file "simple_navbar_controller.js", "app/javascript/controllers/simple_navbar_controller.js"
+        copy_file "app/assets/javascript/simple_navbar_controller.js", "app/javascript/controllers/simple_navbar_controller.js"
       else
         copy_file "assets/javascript/simple_navbar.js", "app/javascript/custom/simple_navbar.js"
       end
     end
 
     def copy_to_assets_folder
-      copy_file "assets/javascript/simple_navbar.js", "app/assets/javascripts/simple_navbar.js"
+      copy_file "app/assets/javascript/simple_navbar.js", "app/assets/javascripts/simple_navbar.js"
     end
   end
 end

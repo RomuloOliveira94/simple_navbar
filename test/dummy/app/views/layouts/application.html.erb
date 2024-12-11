@@ -16,12 +16,27 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag "application" %>
   </head>
 
   <body>
+    <%= simple_navbar(
+      brand: {
+      title: "Dummy",
+      logo: "/icon.png",
+      url: root_path
+      },
+      links: [
+      { label: "Home", url: root_path },
+      { label: "teste", url: root_path },
+      { dropdown: {
+        label: "More",
+        links: [
+          { label: "More", url: root_path },
+          { label: "Test", url: root_path }
+        ]
+        }
+      }]
+    ) %>
     <%= yield %>
   </body>
 </html>
