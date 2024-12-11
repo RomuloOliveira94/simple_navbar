@@ -11,24 +11,17 @@ module SimpleNavbar
     end
 
     def copy_javascript
-      if using_webpacker_or_importmap?
-        copy_to_javascript_folder
-      else
-        copy_to_assets_folder
-      end
+      copy_to_javascript_folder unless options[:legacy]
+      copy_to_assets_folder
     end
 
     private
-
-    def using_webpacker_or_importmap?
-      Rails.root.join("app", "javascript").exist?
-    end
 
     def copy_to_javascript_folder
       if options[:stimulus]
         copy_file "app/assets/javascript/simple_navbar_controller.js", "app/javascript/controllers/simple_navbar_controller.js"
       else
-        copy_file "assets/javascript/simple_navbar.js", "app/javascript/custom/simple_navbar.js"
+        copy_file "app/assets/javascript/simple_navbar.js", "app/javascript/custom/simple_navbar.js"
       end
     end
 
