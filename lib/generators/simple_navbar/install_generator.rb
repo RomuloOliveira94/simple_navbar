@@ -19,6 +19,10 @@ module SimpleNavbar
       end
     end
 
+    def include_helper_in_application_controller
+      inject_into_class "app/controllers/application_controller.rb", ApplicationController, "helper SimpleNavbar\n"
+    end
+
     private
 
     def copy_to_javascript_folder

@@ -25,4 +25,13 @@ class SimpleNavbar::GeneratorTest < Rails::Generators::TestCase
     run_generator [ "--legacy" ]
     assert_file "app/assets/javascripts/simple_navbar.js"
   end
+
+  def test_includes_helper_in_application_controller
+    mkdir_p "tmp/app/controllers"
+    File.write("tmp/app/controllers/application_controller.rb", "class ApplicationController < ActionController::Base\nend")
+    run_generator
+    assert_file "app/controllers/application_controller.rb" do |content|
+      assert_match(/helper SimpleNavbar/, content)
+    end
+  end
 end
