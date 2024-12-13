@@ -3,9 +3,9 @@
   --bg-color: #ffffff;
   --text-color: #333333;
   --shadow: rgba(0, 0, 0, 0.1);
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 896px;
+  --container-sm: 768px;
+  --container-md: 1024px;
+  --container-lg: 1280px;
 }
 
 [data-theme="dark"] {
