@@ -21,7 +21,7 @@ class SimpleNavbar::GeneratorTest < Rails::Generators::TestCase
     assert_file "app/javascript/custom/simple_navbar.js"
   end
 
-  def test_copies_to_assets_if_no_app_javascript
+  def test_copies_to_assets_if_legacy_option_is_passed
     run_generator [ "--legacy" ]
     assert_file "app/assets/javascripts/simple_navbar.js"
   end
