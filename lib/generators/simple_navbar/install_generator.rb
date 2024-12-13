@@ -20,7 +20,7 @@ module SimpleNavbar
     end
 
     def include_helper_in_application_controller
-      inject_into_class "app/controllers/application_controller.rb", ApplicationController, "helper SimpleNavbar\n"
+      inject_into_class "app/controllers/application_controller.rb", ApplicationController, "  helper SimpleNavbar\n"
     end
 
     def include_javascript_tag_in_layout
