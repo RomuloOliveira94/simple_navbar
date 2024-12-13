@@ -23,6 +23,14 @@ module SimpleNavbar
       inject_into_class "app/controllers/application_controller.rb", ApplicationController, "helper SimpleNavbar\n"
     end
 
+    def include_javascript_tag_in_layout
+      unless options[:stimulus]
+        inject_into_file "app/views/layouts/application.html.erb", before: "</head>\n" do
+          "  <%= javascript_include_tag 'custom/simple_navbar' %>\n"
+        end
+      end
+    end
+
     private
 
     def copy_to_javascript_folder
