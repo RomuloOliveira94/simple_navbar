@@ -24,7 +24,7 @@
   position: fixed;
   background-color: var(--bg-color);
   color: var(--text-color);
-  padding: 16px;
+  padding: 28px;
   z-index: 100;
   width: 100%;
   box-shadow: 0 4px 6px -1px var(--shadow);
